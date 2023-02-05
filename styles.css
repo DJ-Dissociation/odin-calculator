@@ -1,0 +1,46 @@
+.row {
+    display: flex;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display {
+    /* padding: 10px; */
+    box-sizing: border-box;
+    padding: 10px 10px;
+    width: 320px;
+    background-color: lightgrey;
+    text-align: right;
+    border-style: solid;
+}
+
+
+button {
+    width: 80px;
+    padding: 10px 0px;
+    color: white;
+}
+
+.numberButton {
+    background-color: rgb(8, 107, 8);
+}
+
+.operandButton {
+    background-color: black;
+}
+
+.offButton {
+    background-color: rgb(112, 112, 112);
+}
+
+.clearButton {
+    background-color: rgb(168, 32, 32);
+}
+
+.equalsButton {
+    background-color: rgb(168, 32, 32);
+}
