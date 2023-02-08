@@ -1,8 +1,3 @@
-// optional: implement a backspace button (pop current when pressed, need to google the function)
-// mod 9 mod 8 -> 98
-// some way to get to showing b, so then +/- makes a overwrite b in display
-
-
 // Initialize globals
 let displayValue = 0;                               // Initialize display with 0
 let display = document.querySelector('.display');   // Find display node to update it later
@@ -61,6 +56,33 @@ operandButtons.forEach( (button) => {
     })
 })
 
+// Add behavior for "Delete" button
+const deleteButton = document.querySelector('.deleteButton');
+deleteButton.addEventListener('click', () => {
+    if (onFirstOperation) {     // If editing a
+        if (a.toString().charAt(a.toString().length-1) === '.'){    // Enable dot button if deleting a dot
+            dotButton.disabled = false;
+        } 
+        a = a.toString().slice(0,-1);   // Delete last char of string version of a
+        if (a.length === 0) {           // If this takes away last char, set a to '0'
+            a = '0';
+            justFinishedEval = true;
+        }
+        displayValue = a;               // Update display value
+    } else {                                    // Else do same for b
+        if (b.toString().charAt(b.toString().length-1) === '.'){
+            dotButton.disabled = false;
+        } 
+        b = b.toString().slice(0,-1);
+        if (b.length === 0) {
+            b = '0';
+            justFinishedEval = true;
+        }
+        displayValue = b;
+    }
+    updateDisplay(displayValue);
+})
+
 // Add behavior for "Clear" button
 const clearButton = document.querySelector('.clearButton');
 clearButton.addEventListener('click', () => {
@@ -74,11 +96,11 @@ dotButton.addEventListener('click', () => {
 })
 
 // Add behavior for "Off" button
-const offButton = document.querySelector('.offButton');
-offButton.addEventListener('click', () => {
-    resetCalculator();
-    window.alert("calculator is sleeping... \n press [ OK ] to wake   ")
-})
+// const offButton = document.querySelector('.offButton');
+// offButton.addEventListener('click', () => {
+//     resetCalculator();
+//     window.alert("calculator is sleeping... \n press [ OK ] to wake   ")
+// })
 
 // const backspaceButton = document.querySelector('.backspaceButton') {
 // }
@@ -118,6 +140,7 @@ function resetCalculator() {
     onFirstValue = true;
     onFirstOperation = true;
     justFinishedEval = true;
+    dotButton.disabled = false;
     updateDisplay(displayValue);
 }
 

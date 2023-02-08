@@ -6,12 +6,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 20px 0px;
 }
 
 .display {
-    /* padding: 10px; */
     box-sizing: border-box;
-    padding: 10px 10px;
+    padding: 15px 10px;
     width: 320px;
     background-color: lightgrey;
     text-align: right;
@@ -21,7 +21,7 @@
 
 button {
     width: 80px;
-    padding: 10px 0px;
+    padding: 15px 0px;
     color: white;
 }
 
@@ -33,7 +33,7 @@ button {
     background-color: black;
 }
 
-.offButton {
+.offButton, .deleteButton {
     background-color: rgb(112, 112, 112);
 }
 
